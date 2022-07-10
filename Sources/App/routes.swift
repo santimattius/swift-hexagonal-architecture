@@ -8,4 +8,11 @@ func routes(_ app: Application) throws {
     app.get("hello") { req -> String in
         return "Hello, world!"
     }
+    
+    app.get("healthcheck"){ req async throws -> String in
+        let controller = HealthcheckController()
+        let result = try await controller.get()
+        return "\(result)"
+    }
+            
 }
