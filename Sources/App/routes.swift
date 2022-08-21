@@ -12,7 +12,7 @@ func routes(_ app: Application) throws {
     
     app.post("product"){ req async throws -> ProductDto in
         let controller = serviceLocator.provideProductController()
-        let result = try controller.post(request: req)
+        let result = try await controller.post(request: req)
         switch result{
         case .success(let product):
             return product
@@ -21,5 +21,3 @@ func routes(_ app: Application) throws {
         }
     }
 }
-
-

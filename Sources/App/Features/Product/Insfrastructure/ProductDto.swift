@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Vapor
 
 struct ProductDto: Codable {
     let id, name: String
